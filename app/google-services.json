@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "386558960453",
+    "firebase_url": "https://softwareengineeringa3.firebaseio.com",
+    "project_id": "softwareengineeringa3",
+    "storage_bucket": "softwareengineeringa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386558960453:android:6409f2945731fca6",
+        "android_client_info": {
+          "package_name": "com.acme.a3csci3130"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386558960453-de7g09bjmh1pqmta7bcpv2neb7vbr195.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEgz8Db2qzi_wA9IDy3bg8ZVNP2S9XZy0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
