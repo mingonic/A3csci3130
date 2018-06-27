@@ -2,10 +2,22 @@ package com.acme.a3csci3130;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.Espresso;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import android.support.test.rule.ActivityTestRule;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+
 
 import static org.junit.Assert.*;
 
@@ -19,7 +31,8 @@ public class ExampleInstrumentedTest {
     @Test
     public void UICreating() throws Exception {
         // Context of the app under test.
-        //assertEquals("com.acme.a3csci3130", appContext.getPackageName());
+        onView(withId(R.id.submitButton)).perfrom(click());
+
         assertEquals("1", "1");
     }
 
