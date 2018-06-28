@@ -39,10 +39,10 @@ public class Contact implements Serializable {
         HashMap<String, Object> result = new HashMap<>();
         result.put("uid", uid);
         result.put("name", name);
-        result.put("primary business", pbusiness);
-        result.put("business number", bnumber);
+        result.put("pbusiness", pbusiness);
+        result.put("bnumber", bnumber);
         result.put("address", address);
-        result.put("provence/terriroty", province);
+        result.put("provence", province);
 
         return result;
     }

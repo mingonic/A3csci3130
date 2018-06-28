@@ -8,8 +8,10 @@ import android.widget.EditText;
 public class DetailViewActivity extends Activity {
 
     private EditText BusNumField, NamField, PBusField, AddField, ProvField;
+    private MyApplicationData Status;
     Contact receivedPersonInfo;
 
+    //creating a firebase entry
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,21 +25,38 @@ public class DetailViewActivity extends Activity {
         ProvField = (EditText) findViewById(R.id.provence);
 
         if(receivedPersonInfo != null){
-            BusNumField = (EditText) findViewById(R.id.businessnumber);
-            NamField = (EditText) findViewById(R.id.name);
-            PBusField = (EditText) findViewById(R.id.pbusiness);
-            AddField = (EditText) findViewById(R.id.address);
-            ProvField = (EditText) findViewById(R.id.provence);
+            BusNumField.setText(receivedPersonInfo.bnumber);
+            NamField.setText(receivedPersonInfo.name);
+            PBusField.setText(receivedPersonInfo.pbusiness);
+            AddField.setText(receivedPersonInfo.address);
+            ProvField.setText(receivedPersonInfo.province);
         }
     }
 
-    public void updateContact(View v){
-        //TODO: Update contact funcionality
+
+    //updating the contect of firebase
+    public void updateContact(View v) {
+        String personID = receivedPersonInfo.uid;
+        String name = NamField.getText().toString();
+        String address = AddField.getText().toString();
+        String business_number = BusNumField.getText().toString();
+        String primary_business = PBusField.getText().toString();
+        String province = ProvField.getText().toString();
+
+        Contact updatePersonInfo = new Contact(personID, name, business_number, primary_business, address, province);
+
+        Status.firebaseReference.child(personID).setValue(updatePersonInfo);
+
+        //finish();
     }
 
+
+    //deleting a entry in firebase
     public void eraseContact(View v)
     {
-        //TODO: Erase contact functionality
+        String personID = receivedPersonInfo.uid;
+        Status.firebaseReference.child(personID).removeValue();
 
+        //finish();
     }
 }
