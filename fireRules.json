@@ -1,40 +1,23 @@
-//{
-//  "rules": {
-//    ".read": "true",
-//    ".write": "true",
-//    "contacts": {
-//      "$contact": {
-//        "name": {
-//          ".validate": "newData.isString() && newData.val().length < 50"
-//        },
-//        "email": {
-//          ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
-//        }
-//      }
-//    }
-//  }
-//}
-
 {
   "rules": {
     ".read": "true",
     ".write": "true",
     "contacts": {
       "$contact": {
-        "address": {
-          ".validate": "newData.isString() && newData.val().length > 50"
-        },
         "bnumber": {
-          ".validate": "newData.isString() && newData.val().matches(/^[0-9]) && newData.val().length > 9"
+          ".validate": "newData.val() != null && newData.val().length == 9"
         },
         "name": {
-          ".validate": "newData.isString() && newData.val().length > 1 && newData.val().length < 49)"
+          ".validate": "newData.val() != null && newData.isString() && newData.val().length <= 48 && newData.val().length >= 2"
         },
         "pbusiness": {
-          ".validate": "newData.isString() && (newData.val() = "Fisher" || newData.val() = "Distributor" || newData.val() = "Processor" || newData.val() = "Fish Monger"))"
+          ".validate": "newData.val() != null && newData.isString() && newData.val().matches(/Fisher|Distributor|Processor|Fish Monger/)"
+        },
+        "address": {
+          ".validate": "newData.isString() && newData.val().length < 50"
         },
         "province": {
-          ".validate": "newData.isString() && (newData.val() = "AB") || newData.val() = "BC" || newData.val() = "MB" || newData.val() = "NB" || newData.val() = "NL" || newData.val() = "NS" || newData.val() = "NT" || newData.val() = "NU" || newData.val() = "ON" || newData.val() = "PE" || newData.val() = "QC" || newData.val() = "SK" || newData.val() = "YT")"
+          ".validate": "newData.isString() && (newData.val().matches(/AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT/) || newData.val().matches(/ /))"
         }
       }
     }
