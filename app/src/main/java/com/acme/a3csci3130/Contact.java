@@ -19,19 +19,19 @@ public class Contact implements Serializable {
     public  String pbusiness;
     public  String bnumber;
     public  String address;
-    public  String province;
+    public  String provence;
 
     public Contact() {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
-    public Contact(String uid, String name, String bnumber, String pbusiness, String address, String province){
+    public Contact(String uid, String name, String bnumber, String pbusiness, String address, String provence){
         this.uid = uid;
         this.name = name;
         this.pbusiness = pbusiness;
         this.bnumber = bnumber;
         this.address = address;
-        this.province = province;
+        this.provence = provence;
     }
 
     @Exclude
@@ -42,7 +42,7 @@ public class Contact implements Serializable {
         result.put("pbusiness", pbusiness);
         result.put("bnumber", bnumber);
         result.put("address", address);
-        result.put("province", province);
+        result.put("provence", provence);
 
         return result;
     }

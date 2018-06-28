@@ -14,6 +14,8 @@ public class DetailViewActivity extends Activity {
     //creating a firebase entry
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Status = ((MyApplicationData) getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_view);
         receivedPersonInfo = (Contact)getIntent().getSerializableExtra("Contact");
@@ -29,21 +31,22 @@ public class DetailViewActivity extends Activity {
             NamField.setText(receivedPersonInfo.name);
             PBusField.setText(receivedPersonInfo.pbusiness);
             AddField.setText(receivedPersonInfo.address);
-            ProvField.setText(receivedPersonInfo.province);
+            ProvField.setText(receivedPersonInfo.provence);
         }
     }
 
 
     //updating the contect of firebase
     public void updateContact(View v) {
+        Status = ((MyApplicationData) getApplicationContext());
         String personID = receivedPersonInfo.uid;
         String name = NamField.getText().toString();
         String address = AddField.getText().toString();
         String business_number = BusNumField.getText().toString();
         String primary_business = PBusField.getText().toString();
-        String province = ProvField.getText().toString();
+        String provence = ProvField.getText().toString();
 
-        Contact updatePersonInfo = new Contact(personID, name, business_number, primary_business, address, province);
+        Contact updatePersonInfo = new Contact(personID, name, business_number, primary_business, address, provence);
 
         Status.firebaseReference.child(personID).setValue(updatePersonInfo);
 
@@ -54,6 +57,7 @@ public class DetailViewActivity extends Activity {
     //deleting a entry in firebase
     public void eraseContact(View v)
     {
+        Status = ((MyApplicationData) getApplicationContext());
         String personID = receivedPersonInfo.uid;
         Status.firebaseReference.child(personID).removeValue();
 
