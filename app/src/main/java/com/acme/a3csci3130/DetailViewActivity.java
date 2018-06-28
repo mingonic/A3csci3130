@@ -47,7 +47,7 @@ public class DetailViewActivity extends Activity {
 
         Status.firebaseReference.child(personID).setValue(updatePersonInfo);
 
-        //finish();
+        finish();
     }
 
 
@@ -57,6 +57,6 @@ public class DetailViewActivity extends Activity {
         String personID = receivedPersonInfo.uid;
         Status.firebaseReference.child(personID).removeValue();
 
-        //finish();
+        finish();
     }
 }

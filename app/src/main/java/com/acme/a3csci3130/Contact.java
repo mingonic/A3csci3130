@@ -42,7 +42,7 @@ public class Contact implements Serializable {
         result.put("pbusiness", pbusiness);
         result.put("bnumber", bnumber);
         result.put("address", address);
-        result.put("provence", province);
+        result.put("province", province);
 
         return result;
     }
