@@ -59,10 +59,10 @@ public class ExampleInstrumentedTest {
 
         Thread.sleep(1000);
 
-        onView(withId(R.id.name)).perform(typeText("Nicholas Mingo");
-        onView(withId(R.id.businessnumber)).perform(typeText("9027592101");
-        onView(withId(R.id.pbusiness)).perform(typeText("Fisher");
-        onView(withId(R.id.address)).perform(typeText("44 seashell lane");
+        onView(withId(R.id.name)).perform(typeText("Nicholas Mingo"));
+        onView(withId(R.id.businessnumber)).perform(typeText("9027592101"));
+        onView(withId(R.id.pbusiness)).perform(typeText("Fisher"));
+        onView(withId(R.id.address)).perform(typeText("44 seashell lane"));
         onView(withId(R.id.provence)).perform(typeText("NS"), closeSoftKeyboard());
 
         onView(withId(R.id.submitButton)).perform(click());
@@ -89,22 +89,25 @@ public class ExampleInstrumentedTest {
 
         Thread.sleep(1000);
 
-        onView(withId(R.id.name)).perform(typeText("Dahn Balan");
-        onView(withId(R.id.businessnumber)).perform(typeText("9021234567");
-        onView(withId(R.id.pbusiness)).perform(typeText("Distributor");
-        onView(withId(R.id.address)).perform(typeText("Halifax");
+        onView(withId(R.id.name)).perform(typeText("Dahn Balan"));
+        onView(withId(R.id.businessnumber)).perform(typeText("9021234567"));
+        onView(withId(R.id.pbusiness)).perform(typeText("Distributor"));
+        onView(withId(R.id.address)).perform(typeText("Halifax"));
         onView(withId(R.id.provence)).perform(typeText("BC"), closeSoftKeyboard());
 
         onView(withId(R.id.submitButton)).perform(click());
 
         Thread.sleep(1000);
 
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
+        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
+
+        Thread.sleep(1000);
+
         onView(withId(R.id.name)).check(matches(withText("Dahn Balan")));
         onView(withId(R.id.businessnumber)).check(matches(withText("9021234567")));
-        onView(withId(R.id.pbusiness)).check(matches(withSpinnerText(containsString("Distributor"))));
+        onView(withId(R.id.pbusiness)).check(matches(withText("Distributor")));
         onView(withId(R.id.address)).check(matches(withText("Halifax")));
-        onView(withId(R.id.provence)).check(matches(withSpinnerText(containsString("BC"))));
+        onView(withId(R.id.provence)).check(matches(withText("BC")));
 
     }
 
@@ -112,7 +115,21 @@ public class ExampleInstrumentedTest {
     //Tests to see if updateing feature works
     @Test
     public void UIUpdating() throws Exception {
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
+        onView(withId(R.id.submitButton)).perform(click());
+
+        Thread.sleep(1000);
+
+        onView(withId(R.id.name)).perform(typeText("Dahn Balan"));
+        onView(withId(R.id.businessnumber)).perform(typeText("9021234567"));
+        onView(withId(R.id.pbusiness)).perform(typeText("Distributor"));
+        onView(withId(R.id.address)).perform(typeText("Halifax"));
+        onView(withId(R.id.provence)).perform(typeText("BC"), closeSoftKeyboard());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        Thread.sleep(1000);
+
+        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
         Thread.sleep(1000);
 
@@ -122,14 +139,13 @@ public class ExampleInstrumentedTest {
 
         Thread.sleep(1000);
 
-
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(1).perform(click());
+        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
         onView(withId(R.id.name)).check(matches(withText("Alisha MacDonald")));
         onView(withId(R.id.businessnumber)).check(matches(withText("9021234567")));
-        onView(withId(R.id.pbusiness)).check(matches(withSpinnerText(containsString("Distributor"))));
+        onView(withId(R.id.pbusiness)).check(matches(withText("Distributor")));
         onView(withId(R.id.address)).check(matches(withText("Halifax")));
-        onView(withId(R.id.provence)).check(matches(withSpinnerText(containsString("BC"))));
+        onView(withId(R.id.provence)).check(matches(withText("BC")));
 
     }
 
@@ -137,15 +153,26 @@ public class ExampleInstrumentedTest {
     //Tests to see if deleting function works
     @Test
     public void UIDeleting() throws Exception {
+        onView(withId(R.id.submitButton)).perform(click());
+
+        Thread.sleep(1000);
+
+        onView(withId(R.id.name)).perform(typeText("Nicholas Mingo"));
+        onView(withId(R.id.businessnumber)).perform(typeText("9027592101"));
+        onView(withId(R.id.pbusiness)).perform(typeText("Fisher"));
+        onView(withId(R.id.address)).perform(typeText("44 seashell lane"));
+        onView(withId(R.id.provence)).perform(typeText("NS"), closeSoftKeyboard());
+
+        onView(withId(R.id.submitButton)).perform(click());
+
+        Thread.sleep(1000);
+
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
         Thread.sleep(1000);
 
-        onView(withId(R.id.updateButton)).perform(click());
+        onView(withId(R.id.deleteButton)).perform(click());
 
-        Thread.sleep(1000);
-
-        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
         Thread.sleep(1000);
 

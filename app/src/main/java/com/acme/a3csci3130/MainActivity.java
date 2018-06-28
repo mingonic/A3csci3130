@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * This was code given by the professor and was not updated
+ */
 public class MainActivity extends Activity {
 
 

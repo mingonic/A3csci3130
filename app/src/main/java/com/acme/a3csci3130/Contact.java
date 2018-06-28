@@ -25,6 +25,16 @@ public class Contact implements Serializable {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
+    /**
+     * This is the constructor for Contact
+     * @param uid
+     * @param name
+     * @param bnumber
+     * @param pbusiness
+     * @param address
+     * @param provence
+     */
+
     public Contact(String uid, String name, String bnumber, String pbusiness, String address, String provence){
         this.uid = uid;
         this.name = name;
@@ -34,6 +44,10 @@ public class Contact implements Serializable {
         this.provence = provence;
     }
 
+    /**
+     * this creates a has map for database information transfers
+     * @return
+     */
     @Exclude
     public Map<String, Object> toMap(){
         HashMap<String, Object> result = new HashMap<>();

@@ -5,13 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+/**
+ * This class displays the objects and is the main funcality of this assignment
+ */
 public class DetailViewActivity extends Activity {
 
     private EditText BusNumField, NamField, PBusField, AddField, ProvField;
     private MyApplicationData Status;
     Contact receivedPersonInfo;
 
-    //creating a firebase entry
+    /**
+     * This method creats the sessions in the database
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -36,7 +42,10 @@ public class DetailViewActivity extends Activity {
     }
 
 
-    //updating the contect of firebase
+    /**
+     * This method is updating the contect of firebase
+     * @param v
+     */
     public void updateContact(View v) {
         Status = ((MyApplicationData) getApplicationContext());
         String personID = receivedPersonInfo.uid;
@@ -54,7 +63,10 @@ public class DetailViewActivity extends Activity {
     }
 
 
-    //deleting a entry in firebase
+    /**
+     * This method is deleting a entry in firebase
+     * @param v
+     */
     public void eraseContact(View v)
     {
         Status = ((MyApplicationData) getApplicationContext());
