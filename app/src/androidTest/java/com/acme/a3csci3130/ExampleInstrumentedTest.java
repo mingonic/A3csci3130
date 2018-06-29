@@ -38,14 +38,11 @@ public class ExampleInstrumentedTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule(MainActivity.class);
-    private MainActivity mainActivity;
 
 
     //Clear the database
     @Before
     public void setUp() throws Exception {
-        mainActivity = mActivityRule.getActivity();
-
         Firebase = FirebaseDatabase.getInstance().getReference("contacts");
         Firebase.removeValue();
     }
@@ -60,7 +57,7 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onView(withId(R.id.name)).perform(typeText("Nicholas Mingo"));
-        onView(withId(R.id.businessnumber)).perform(typeText("9027592101"));
+        onView(withId(R.id.businessnumber)).perform(typeText("902759210"));
         onView(withId(R.id.pbusiness)).perform(typeText("Fisher"));
         onView(withId(R.id.address)).perform(typeText("44 seashell lane"));
         onView(withId(R.id.provence)).perform(typeText("NS"), closeSoftKeyboard());
@@ -90,7 +87,7 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onView(withId(R.id.name)).perform(typeText("Dahn Balan"));
-        onView(withId(R.id.businessnumber)).perform(typeText("9021234567"));
+        onView(withId(R.id.businessnumber)).perform(typeText("902123456"));
         onView(withId(R.id.pbusiness)).perform(typeText("Distributor"));
         onView(withId(R.id.address)).perform(typeText("Halifax"));
         onView(withId(R.id.provence)).perform(typeText("BC"), closeSoftKeyboard());
@@ -104,7 +101,7 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onView(withId(R.id.name)).check(matches(withText("Dahn Balan")));
-        onView(withId(R.id.businessnumber)).check(matches(withText("9021234567")));
+        onView(withId(R.id.businessnumber)).check(matches(withText("902123456")));
         onView(withId(R.id.pbusiness)).check(matches(withText("Distributor")));
         onView(withId(R.id.address)).check(matches(withText("Halifax")));
         onView(withId(R.id.provence)).check(matches(withText("BC")));
@@ -120,7 +117,7 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onView(withId(R.id.name)).perform(typeText("Dahn Balan"));
-        onView(withId(R.id.businessnumber)).perform(typeText("9021234567"));
+        onView(withId(R.id.businessnumber)).perform(typeText("902123456"));
         onView(withId(R.id.pbusiness)).perform(typeText("Distributor"));
         onView(withId(R.id.address)).perform(typeText("Halifax"));
         onView(withId(R.id.provence)).perform(typeText("BC"), closeSoftKeyboard());
@@ -142,7 +139,7 @@ public class ExampleInstrumentedTest {
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
         onView(withId(R.id.name)).check(matches(withText("Alisha MacDonald")));
-        onView(withId(R.id.businessnumber)).check(matches(withText("9021234567")));
+        onView(withId(R.id.businessnumber)).check(matches(withText("902123456")));
         onView(withId(R.id.pbusiness)).check(matches(withText("Distributor")));
         onView(withId(R.id.address)).check(matches(withText("Halifax")));
         onView(withId(R.id.provence)).check(matches(withText("BC")));
@@ -158,7 +155,7 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onView(withId(R.id.name)).perform(typeText("Nicholas Mingo"));
-        onView(withId(R.id.businessnumber)).perform(typeText("9027592101"));
+        onView(withId(R.id.businessnumber)).perform(typeText("902759210"));
         onView(withId(R.id.pbusiness)).perform(typeText("Fisher"));
         onView(withId(R.id.address)).perform(typeText("44 seashell lane"));
         onView(withId(R.id.provence)).perform(typeText("NS"), closeSoftKeyboard());

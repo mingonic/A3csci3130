@@ -39,6 +39,7 @@ public class DetailViewActivity extends Activity {
             AddField.setText(receivedPersonInfo.address);
             ProvField.setText(receivedPersonInfo.provence);
         }
+
     }
 
 
