@@ -54,8 +54,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         onView(withId(R.id.submitButton)).perform(click());
 
-        Thread.sleep(1000);
-
         onView(withId(R.id.name)).perform(typeText("Nicholas Mingo"));
         onView(withId(R.id.businessnumber)).perform(typeText("902759210"));
         onView(withId(R.id.pbusiness)).perform(typeText("Fisher"));
@@ -63,15 +61,6 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.provence)).perform(typeText("NS"), closeSoftKeyboard());
 
         onView(withId(R.id.submitButton)).perform(click());
-
-        Thread.sleep(1000);
-
-//        onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-//        onView(withId(R.id.name)).check(matches(withText("Nicholas Mingo")));
-//        onView(withId(R.id.businessnumber)).check(matches(withText("9027592101")));
-//        onView(withId(R.id.pbusiness)).check(matches(withSpinnerText(containsString("Fisher"))));
-//        onView(withId(R.id.address)).check(matches(withText("44 seashell lane")));
-//        onView(withId(R.id.provence)).check(matches(withSpinnerText(containsString("NS"))));
 
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).check(matches(isDisplayed()));
 
@@ -84,8 +73,6 @@ public class ExampleInstrumentedTest {
     public void UIReading() throws Exception {
         onView(withId(R.id.submitButton)).perform(click());
 
-        Thread.sleep(1000);
-
         onView(withId(R.id.name)).perform(typeText("Dahn Balan"));
         onView(withId(R.id.businessnumber)).perform(typeText("902123456"));
         onView(withId(R.id.pbusiness)).perform(typeText("Distributor"));
@@ -97,8 +84,6 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-
-        Thread.sleep(1000);
 
         onView(withId(R.id.name)).check(matches(withText("Dahn Balan")));
         onView(withId(R.id.businessnumber)).check(matches(withText("902123456")));
@@ -114,8 +99,6 @@ public class ExampleInstrumentedTest {
     public void UIUpdating() throws Exception {
         onView(withId(R.id.submitButton)).perform(click());
 
-        Thread.sleep(1000);
-
         onView(withId(R.id.name)).perform(typeText("Dahn Balan"));
         onView(withId(R.id.businessnumber)).perform(typeText("902123456"));
         onView(withId(R.id.pbusiness)).perform(typeText("Distributor"));
@@ -127,8 +110,6 @@ public class ExampleInstrumentedTest {
         Thread.sleep(1000);
 
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
-
-        Thread.sleep(1000);
 
         onView(withId(R.id.name)).perform(replaceText("Alisha MacDonald"),closeSoftKeyboard());
 
@@ -152,8 +133,6 @@ public class ExampleInstrumentedTest {
     public void UIDeleting() throws Exception {
         onView(withId(R.id.submitButton)).perform(click());
 
-        Thread.sleep(1000);
-
         onView(withId(R.id.name)).perform(typeText("Nicholas Mingo"));
         onView(withId(R.id.businessnumber)).perform(typeText("902759210"));
         onView(withId(R.id.pbusiness)).perform(typeText("Fisher"));
@@ -162,16 +141,9 @@ public class ExampleInstrumentedTest {
 
         onView(withId(R.id.submitButton)).perform(click());
 
-        Thread.sleep(1000);
-
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).perform(click());
 
-        Thread.sleep(1000);
-
         onView(withId(R.id.deleteButton)).perform(click());
-
-
-        Thread.sleep(1000);
 
         onView(withId(R.id.listView)).check(matches(not(isDisplayed())));
     }
